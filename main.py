@@ -26,7 +26,7 @@ f2f_soup = bs(f2f_page,'html.parser')
 #find the right html element (searchbar)
 searchbar = f2f_soup.input #searchbar is only input on the page
 
-
+#TODO clean up beautiful soup, eliminate unecessary code and replace with function calls
 
 
 
