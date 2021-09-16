@@ -9,14 +9,15 @@
 #imports and basic setup
 
 from bs4 import BeautifulSoup as bs
-import urllib.request
+import urllib.request as url
 import pandas as pd
 from selenium import webdriver as wd
+import search_functions as sf
 
 #set up page and query
 f2f_url = "https://www.facetofacegames.com/"
 
-f2f_page = urllib.request.urlopen(f2f_url)
+f2f_page = url.urlopen(f2f_url)
 
 f2f_soup = bs(f2f_page,'html.parser')
 
@@ -25,7 +26,7 @@ f2f_soup = bs(f2f_page,'html.parser')
 #find the right html element (searchbar)
 searchbar = f2f_soup.input #searchbar is only input on the page
 
-
+#TODO clean up beautiful soup, eliminate unecessary code and replace with function calls
 
 
 
