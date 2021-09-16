@@ -1,0 +1,12 @@
+F2F SearchBot Development plan
+
+1. establish webdriver and connect to site
+
+2. create bot that can interact with searchbar and save results
+
+3. parse results to ensure correct cards, no silver border, etc
+
+4. build simple GUI for ease of use (tkinter)
+
+5. convert to exe for ease of use
+
