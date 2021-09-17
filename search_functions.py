@@ -21,3 +21,15 @@ driver = wd.Chrome(PATH)
 
 driver.get("https://www.facetofacegames.com/")
 #(driver.title)
+
+#find search bar element and pass terms
+search_bar = driver.find_element_by_id("search_query")
+
+search_bar.send_keys("goldspan dragon")
+search_bar.send_keys(Keys.RETURN)
+
+results = driver.find_element_by_class_name("productGrid") #currently does not include prices
+
+#print(results.text)
+
+driver.quit()
