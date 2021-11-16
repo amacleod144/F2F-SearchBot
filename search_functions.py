@@ -16,6 +16,9 @@ from selenium.webdriver.common.keys import Keys
 #drafts for function, TODO: turn into actual functions
 
 #establish driver path and browser instance
+
+#NOTE: if you update chrome, you must download the new chrome driver and install it in program files,
+#then paste the new path here. If you do not, code will not execute
 PATH = "C:\Program Files (x86)\chromedriver.exe"
 driver = wd.Chrome(PATH)
 
@@ -28,8 +31,12 @@ search_bar = driver.find_element_by_id("search_query")
 search_bar.send_keys("goldspan dragon")
 search_bar.send_keys(Keys.RETURN)
 
-results = driver.find_element_by_class_name("productGrid") #currently does not include prices
+#results = driver.find_element_by_class_name("productGrid") #currently does not include prices
 
-#print(results.text)
+results = driver.find_elements_by_xpath("//span[@data-product-price-without-tax") #attempt to get just prices
 
-driver.quit()
+#"data-product-price"#another attempt to get prices
+
+print(results.text)
+
+#driver.quit()
