@@ -26,17 +26,30 @@ driver.get("https://www.facetofacegames.com/")
 #(driver.title)
 
 #find search bar element and pass terms
-search_bar = driver.find_element_by_id("search_query")
+#search_bar = driver.find_element_by_id("search_query") id was removed from tag, this no longer works
+search_bar = driver.find_element_by_css_selector("input[placeholder = 'Enter a search term']")
 
 search_bar.send_keys("goldspan dragon")
 search_bar.send_keys(Keys.RETURN)
 
-#results = driver.find_element_by_class_name("productGrid") #currently does not include prices
+#create empty lists for data from site
+product_name = []
+product_price = []
 
-results = driver.find_elements_by_xpath("//span[@data-product-price-without-tax") #attempt to get just prices
+#create item
+#https://medium.com/@jb.ranchana/web-scraping-with-selenium-in-python-amazon-search-result-part-1-f09c88090932
+items = driver.find_elements_by_xpath("//div[contains(@class, 'hawk-results__item')]")
+
+
+
+#results = driver.find_element_by_class_name("productGrid") #currently does not include prices
+#results = driver.find_elements_by_xpath("//span[@data-product-price-without-tax") #attempt to get just prices
+#results = driver.find_elements_by_xpath("//*[@id='product-listing-container']/form[2]/ul/li[1]/article/div[5]/div/div[1]/div[3]/span[3]") # got this by inspecting price
+#results = driver.find_element_by_class_name("price price--withoutTax")
 
 #"data-product-price"#another attempt to get prices
 
-print(results.text)
+#print(results.text)
+
 
 #driver.quit()
